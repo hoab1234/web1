@@ -19,9 +19,33 @@
           </ul>
         </nav>
       </div>
-  <input type = "button" id="authBtn" value = "checking..."style="position:relative; top:25px; left: 60%;">
+  <input type = "button" id="authBtn" value = "checking..." style="position:relative; top:25px; left: 60%;"  onclick = "
+                  if(this.value === 'Login'){
+                    FB.login(function(res){
+                        console.log('login =>',res);
+                        callback(res);
+                      });
+                  else{
+                    FB.logout(function(res){
+                        console.log('logout =>',res);
+                        callback(res);
+                      });
+
+                  }
+                  ">
 
       <script>
+      var callback = function(response){
+        console.log(response);
+        //statusChangeCallback(response);
+        if(response.status === 'connected'){
+          document.querySelector('#authBtn').value = 'Logout';
+        }
+        else{
+          document.querySelector('#authBtn').value = 'Login';
+        }
+      }
+
       //페북 sdk 로드하는 부분
       //페북 sdk파일을 페북서버에서 받아서 가져오는 것
       (function(d, s, id) {                      // Load the SDK asynchronously
@@ -44,16 +68,7 @@
      version    : 'v5.0'           // Use this Graph API version for this call.
    });
 
-var callback = function(response){
-  console.log(response);
-  //statusChangeCallback(response);
-  if(response.status === 'connected'){
-    document.querySelector('#authBtn').value = 'Logout';
-  }
-  else{
-    document.querySelector('#authBtn').value = 'Login';
-  }
-}
+
  FB.getLoginStatus(callback);
 
 };
