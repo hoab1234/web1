@@ -1,0 +1,376 @@
+@charset "utf-8";
+@import url(font.css);
+@import url(all.min.css);
+@import url(reset.css);
+
+/*font*/
+body {font-family: "Play", sans-serif;color: #222}
+.en {font-family: "Mono"}
+
+/*layout*/
+#wrap {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #111;
+  overflow: hidden
+}
+
+/*동영상 배경*/
+.vid {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  
+  width: 100%;
+  height: 100%;
+}
+.vid video {
+  min-width: 100%;
+  min-height: 100%;
+  opacity: 0.7;
+}
+
+/*header*/
+#header {
+  position: absolute;
+  left: 0;
+  top: 0;
+  
+  width: 700px;
+  height: 100%;
+  background: linear-gradient(90deg, #e6fc55, rgba(185 250 5 /0.5));
+  transform: skewX(-40deg);
+/*  transform-origin: left top*/
+  transform-origin: 0 0;
+/*  box-shadow: 3px 0 5px rgb(0, 0, 0, 0.7)*/
+}
+
+/*logo*/
+#logo {
+  position: absolute;
+  left: 20px;
+  top: 20px
+}
+#logo img {
+  width: 250px
+}
+
+/*#gnb*/
+#gnb {
+  position: absolute;
+  right: 0;
+  top: 150px;
+  width: 200px;
+}
+#gnb b {
+  display: inline-block;
+  transform: skewX(40deg);
+  font-weight: bold;
+}
+#gnb .fa-sync-alt {
+  margin-right: 5px
+}
+#gnb > li {
+  height: 50px;
+  line-height: 50px;
+  position: relative;
+}
+#gnb > li > a {
+  display: block;
+  text-align: right;
+  padding-right: 40px;
+}
+#gnb > li:hover > a {
+  background: #111;
+  color: #fff
+}
+#gnb > li.on > a {
+  background: #111;
+  color: #fff
+}
+
+#gnb > li .snb {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 150px;
+  opacity: 0;
+  transition: all 0.5s;
+}
+#gnb > li:hover .snb {
+  left: 180px;
+  opacity: 1
+}
+#gnb .snb li {
+  height: 40px;
+  line-height: 40px;
+  margin-bottom: 3px
+}
+#gnb .snb a {
+  display: block;
+  background: #333;
+  color: #ccc;
+  text-align: center;
+  border-bottom: 1px solid #a7b73a;
+  box-shadow: 2px 2px 7px #111
+}
+#gnb .snb a:hover {
+  background: #a7b73a;
+  color: #222
+}
+
+#gnb > li.on .snb {
+  left: 180px;
+  top: -10px;
+  opacity: 1
+}
+#gnb > li.on .snb a {
+  background: #a7b73a;
+  color: #222;
+  border: none;
+  box-shadow: 2px 2px 7px #111
+}
+#gnb > li.on .snb a:hover {
+  background: #333;
+  color: #a7b73a
+}
+
+#sns {
+  position: absolute;
+  right: 50px;
+  top: 50px;
+}
+#sns a {
+  display: inline-block;
+  font-size: 30px;
+  color: #777;
+  padding: 3px;
+  transition: all 0.3s;
+}
+#sns a:hover {
+  color: #a7b73a;
+  transform: translateY(10px);
+  text-shadow: 0 0 5px #111
+}
+
+/*
+#sns a:nth-child(1) {color: #003fb7}
+#sns a:nth-child(2) {color: #2bc7f5}
+#sns a:nth-child(3) {color: #d92323}
+#sns a:nth-child(4) {color: #b4a553}
+#sns a:nth-child(5) {color: #4d7ace}
+*/
+
+/*글상자*/
+#text-box {
+  position: absolute;
+  right: 50px;
+  top: 200px;
+}
+
+#text-box p {
+  color: #eee;
+  font-style: italic;
+  font-size: 50px
+}
+#text-box p b {
+  font: 150px/1 "Mono";
+  color: #b9fb05;
+  text-shadow: 2px 2px 2px #111, 0 0 10px rgba(0,0,0,0.7)
+}
+
+#text-box h2 {
+  color: #ccc;
+  font-size: 30px
+}
+/*
+#text-box h2 b {
+  display: inline-block;
+  color: #b9fb05;
+  font-size: 35px;
+  margin-top: 20px;
+}
+*/
+#text-box h2 b {
+  color: #b9fb05;
+  font-size: 35px;
+  margin-left: 10px;
+  text-shadow: 2px 2px #111,
+    0 0 10px,
+    0 0 10px #555
+}
+
+/*font, background 축약식
+
+font: italic bold size/line-height font-family
+font: normal normal size/auto font-family
+font-style: normal | italic
+font-weight: normal \ bolc
+font-size:
+line-height:
+font-family:
+
+background: color url(img) repeat attatchment|pixed position / size
+background-color:
+background-image: url()
+background-repeat: repeat | no-repeat | repeat-x | repeat-y
+background-attatchment: scroll | fixed
+backgroundd-position: center center(left center right top bottom)
+background-size: contain | cover | px | %
+
+*/
+
+/*사이드 콘텐츠*/
+#aside {
+  position: absolute;
+  right: -300px;
+  bottom: 0;
+  width: 600px;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  
+  transform: skewX(-40deg);
+  transform-origin: right bottom;
+  transition: all 1s
+}
+#aside:hover {
+  right: 0
+}
+#aside .a-con {
+  position: absolute;
+  left: 150px;
+  bottom: 0;
+  width: 300px;
+  height: 100%;
+  
+  background: rgba(0,0,0,0.5);
+  transition: all 1s
+}
+#aside:hover .a-con {
+  left: 50px
+}
+#aside .a-list {
+  position: absolute;
+  left: 50px;
+  bottom: 50px;
+  width: 300px
+}
+#aside .a-list li {
+  
+}
+#aside .a-list b {
+  display: inline-block;
+  color: #ccc;
+  transform: skewX(40deg);
+  margin-bottom: 5px
+}
+#aside .a-list img {
+  display: block;
+  width: 300px;
+}
+#aside .a-list a {
+  display: block;
+  opacity: 0.5
+}
+#aside .a-list a:hover {
+  opacity: 0.9;
+  box-shadow: 0 0px 10px #333
+}
+#aside .a-list li {
+  transform: translate(200px);
+  transition: all 0.6s
+}
+#aside:hover .a-list li {
+  transform: translate(0)
+}
+#aside .a-list li:nth-child(1) {
+  transition-delay: 0.4s
+}
+#aside .a-list li:nth-child(2) {
+  transition-delay: 0.2s
+}
+#aside .a-list li:nth-child(3) {
+  transition-delay: 0s
+}
+
+#aside .a-arrow {
+  position: absolute;
+/*  display: inline-block;*/
+  bottom: -50px;
+  bottom: 50px;
+  width: 200px;
+  left: 0;
+  height: 50px;
+  transform: skewX(40deg);
+  transition: all 0.5s
+}
+#aside:hover .a-arrow {
+  opacity: 0
+}
+
+#aside .a-arrow i {
+  font-size: 50px;
+  color: #b9fb05;
+  
+  position: absolute;
+  right: 0;
+}
+#aside .a-arrow i:nth-child(1) {
+  animation-delay: 0s
+}
+#aside .a-arrow i:nth-child(2) {
+  animation-delay: 0.5s
+}
+#aside .a-arrow i:nth-child(3) {
+  animation-delay: 1s
+}
+
+/*
+  animation-name: love;
+  animation-duration: 1.5;
+  animation-iteration-count: infinite;
+  animation-timeing-function: ease | lineaer | ease-in | ease-out
+*/
+#aside .a-arrow i {
+  animation: love 1.5s linear infinite;
+}
+
+/*애니메이션*/
+@keyframes love {
+  0% {
+    right: 0;
+    opacity: 1;
+    transform: scale(1)
+  }
+  100% {
+    right: 170px;
+    opacity: 0;
+    transform: scale(1.5)
+  }
+}
+#aside .a-arrow img {
+  position: absolute;
+  right: 0;
+  width: 50px;
+  animation: love 1.5s linear infinite
+}
+#aside .a-arrow img:nth-child(1) {
+  animation-delay: 0s
+}
+#aside .a-arrow img:nth-child(2) {
+  animation-delay: 0.5s
+}
+#aside .a-arrow img:nth-child(3) {
+  animation-delay: 1s
+}
+
+
+
+
+
+
+

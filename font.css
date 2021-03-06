@@ -1,0 +1,15 @@
+@charset "utf-8";
+
+@font-face {
+  font-family: NotoR;
+  src: url(font/NotoSansKR-Regular.otf);
+}
+@font-face {
+  font-family: Play;
+  src: url(font/Play-Regular.ttf);
+}
+@font-face {
+  font-family: Mono;
+  src: url(font/Monoton-Regular.ttf);
+}
+
